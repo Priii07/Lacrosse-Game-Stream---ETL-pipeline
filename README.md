@@ -47,8 +47,10 @@ The players table has 10 players for each team. Each player has a name, jersey n
 ## Questions
 
 1. Write a drill SQL query to list the team and player data. Specifically display team name, team wins, team losses player name, player shots and player goals.
+![image](https://github.com/Priii07/Lacrosse-Game-Stream---ETL-pipeline/assets/50296254/c723f1db-773b-4c53-b2d0-dcf4434ab465)
 
 2. Write a drill SQL query to display the gamestream. Label each of the columns in the gamestream with their appropriate columns names from the data dictionary.
+![image](https://github.com/Priii07/Lacrosse-Game-Stream---ETL-pipeline/assets/50296254/c79e3021-e8b0-41f6-a5c7-3ed9191da452)
 
 3. Write pyspark code (in SQL or DataFrame API) to display the gamestream. Label each of the columns in the gamestream with their appropriate columns names from the data dictionary.
 
