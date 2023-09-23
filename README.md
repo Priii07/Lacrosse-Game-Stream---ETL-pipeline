@@ -25,10 +25,8 @@ When the game is over, the player and team reference should be updated to reflec
 ## Game Stream
 While the game is going on, there is a file called gamestream.txt located in the minio/gamestreams S3 bucket. Each time an in-game event happens, the event is appended to this file. To simplify things, the game stream only reports shots on goal. Here is the format of the file each line is an event and the fields are separated by a space:
 
-0 59:51 101 2 0
-1 57:06 101 6 0
-2 56:13 205 8 1
-3 55:25 101 4 0
+<img width="170" alt="image" src="https://github.com/Priii07/Lacrosse-Game-Stream---ETL-pipeline/assets/50296254/ccdd2a5f-539b-4905-a79f-4e9cb108b197">
+
 
 ## Data Dictionary for gamestream.txt
 The first column is the event ID. These are sequential. An event ID of -1 means the game is over.
@@ -61,12 +59,8 @@ The players table has 10 players for each team. Each player has a name, jersey n
     - The last event id and timestamp for that point in time in the game (every row should have the same event ID and as timestamp as these         represent the point in time when the stats were compiled)
     For example (sample - not the actual data):
 
-        event_id	timestamp	team_id	jersey_number	shots	goals	team_goals
-        45	            22:34	  105	    1	          1    	  1	        2
-        45	            22:34	  105	    2	          2	      0	        2
-        45	            22:34     105	    3	          5	      1	        2
-        45	            22:34	  201	    1	          7	      1	        1
-        45	            22:34	  201	    99	          3	      0	        1
+        <img width="681" alt="image" src="https://github.com/Priii07/Lacrosse-Game-Stream---ETL-pipeline/assets/50296254/7a49c4c9-e4c7-454f-8b91-8b4fc55e09aa">
+
 
 5. Write pyspark code (in SQL or DataFrame API) to join the output from question 4 with the player and team reference data mssql so that you have the data necessary for the box score.
 
