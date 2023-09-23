@@ -40,22 +40,8 @@ the final column is a 1 if the shot was a goal, 0 if it was a miss.
 ## Player and Team Reference Data
 The player and team reference data is stored in a Microsoft SQL Server database. The database is called sidearmdb . The database has two tables, players and teams with the following schemas, respectively:
 
-CREATE TABLE teams (
-    id int primary key NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    conference VARCHAR(50) NOT NULL,
-    wins INT NOT NULL,
-    losses INT NOT NULL,
-)
+<img width="508" alt="image" src="https://github.com/Priii07/Lacrosse-Game-Stream---ETL-pipeline/assets/50296254/0eab5c33-9ac1-4d9c-8c5b-7c164f167191">
 
-CREATE TABLE players (
-    id int  primary key NOT NULL,
-    name VARCHAR(50) NOT NULL,
-    number varchar(3) NOT NULL,
-    shots INT NOT NULL,
-    goals INT NOT NULL,
-    teamid INT foreign key references teams(id) NOT NULL,
-)
 The teams table, only has two teams, 101 = syracuse and 205 = johns hopkins. Each team has a conference affiliation, and a current win / loss record.
 
 The players table has 10 players for each team. Each player has a name, jersey number, shots taken, goals scored, along with their team id.
@@ -70,17 +56,17 @@ The players table has 10 players for each team. Each player has a name, jersey n
 
 4. Write pyspark code (in SQL or DataFrame API) to group the gamestream by team/player jersey number adding up the shots and goals. Specifically:
 
-Values dependent on team and player: total shots and goals for each player.
-Value dependent on only team: total goals (this should repeat for every row with the same team id)
-The last event id and timestamp for that point in time in the game (every row should have the same event ID and as timestamp as these represent the point in time when the stats were compiled)
-For example (sample - not the actual data):
+    - Values dependent on team and player: total shots and goals for each player.
+    - Value dependent on only team: total goals (this should repeat for every row with the same team id)
+    - The last event id and timestamp for that point in time in the game (every row should have the same event ID and as timestamp as these         represent the point in time when the stats were compiled)
+    For example (sample - not the actual data):
 
-event_id	timestamp	team_id	jersey_number	shots	goals	team_goals
-45	22:34	105	1	1	1	2
-45	22:34	105	2	2	0	2
-45	22:34	105	3	5	1	2
-45	22:34	201	1	7	1	1
-45	22:34	201	99	3	0	1
+        event_id	timestamp	team_id	jersey_number	shots	goals	team_goals
+        45	            22:34	  105	    1	          1    	  1	        2
+        45	            22:34	  105	    2	          2	      0	        2
+        45	            22:34     105	    3	          5	      1	        2
+        45	            22:34	  201	    1	          7	      1	        1
+        45	            22:34	  201	    99	          3	      0	        1
 
 5. Write pyspark code (in SQL or DataFrame API) to join the output from question 4 with the player and team reference data mssql so that you have the data necessary for the box score.
 
