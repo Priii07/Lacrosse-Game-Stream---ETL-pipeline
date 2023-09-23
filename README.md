@@ -29,11 +29,11 @@ While the game is going on, there is a file called gamestream.txt located in the
 
 
 ## Data Dictionary for gamestream.txt
-The first column is the event ID. These are sequential. An event ID of -1 means the game is over.
-The second column is the timestamp of the event in the format mm:ss. This counts down to 00:00. For example the first event occurred 9 seconds into the game.
-The third column is the team ID, indicating team took the shot on goal. In the simulation there are only two teams, 101 and 205.
-the fourth colum is the jersey number of the player who took the shot.
-the final column is a 1 if the shot was a goal, 0 if it was a miss.
+    - The first column is the event ID. These are sequential. An event ID of -1 means the game is over.
+    - The second column is the timestamp of the event in the format mm:ss. This counts down to 00:00. For example the first event occurred        9 seconds into the game.
+    - The third column is the team ID, indicating team took the shot on goal. In the simulation there are only two teams, 101 and 205.
+    - The fourth colum is the jersey number of the player who took the shot.
+    - The final column is a 1 if the shot was a goal, 0 if it was a miss.
 
 ## Player and Team Reference Data
 The player and team reference data is stored in a Microsoft SQL Server database. The database is called sidearmdb . The database has two tables, players and teams with the following schemas, respectively:
